@@ -14,6 +14,7 @@ module.exports = ( sequelize ) => {
       },
       name: {
         type: DataTypes.STRING,
+        unique: true,
         allowNull: false,
       },
       description: {
@@ -25,7 +26,7 @@ module.exports = ( sequelize ) => {
         defaultValue: 'https://i.blogs.es/7796de/portada-xbox/840_560.jpeg'
       },
       releaseDate: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       rating: {
