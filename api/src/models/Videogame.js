@@ -23,15 +23,30 @@ module.exports = ( sequelize ) => {
       },
       image: {
         type: DataTypes.STRING,
+        validate:{
+          isUrl: true,
+        },
         defaultValue: 'https://i.blogs.es/7796de/portada-xbox/840_560.jpeg'
       },
       releaseDate: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATEONLY,
+        validate:{
+          isDate: true,  
+        },
         allowNull: false,
       },
       rating: {
-        type: DataTypes.ENUM( 'Bad', 'Good', 'Excellent' )
+        type: DataTypes.FLOAT,
+        validate:{
+          max: 5.0,
+          min: 0,
+        },
+        allowNull: false,
       },
+      created:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+    },
     },
     {
       timestamps: false
