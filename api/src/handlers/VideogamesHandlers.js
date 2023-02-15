@@ -10,9 +10,9 @@ const {
 
 // Posts
 const createGameHandler = async ( req, res ) => {
-    const { name, description, image, releaseDate, rating, genres } = req.body;
+    const { name, description, image, releaseDate, rating, genres, parent_platforms } = req.body;
     try {
-        const newGame = await createGame( name, description, image, releaseDate, rating, genres );
+        const newGame = await createGame( name, description, image, releaseDate, rating, genres, parent_platforms );
         res.status(201).json( newGame );
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -44,9 +44,9 @@ const getGameHandler = async ( req, res ) => {
 // Put
 const putGameHandler = async ( req, res ) => {
     const { id } = req.params;
-    const { name, description, image, releaseDate, rating, genres } = req.body;
+    const { name, description, image, releaseDate, rating, genres, parent_platforms } = req.body;
     try {
-        const response = await updateGame( id, name, description, image, releaseDate, rating, genres );
+        const response = await updateGame( id, name, description, image, releaseDate, rating, genres, parent_platforms );
         res.status( 200 ).json( response );
     } catch (error) {
         res.status( 400 ).json({ error: error.message });

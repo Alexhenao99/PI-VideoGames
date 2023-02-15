@@ -21,6 +21,10 @@ module.exports = ( sequelize ) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
+      parent_platforms: {
+        type: DataTypes.ARRAY(DataTypes.ENUM('Xbox', 'PlayStation', 'PC', 'Android', 'Nintendo')),
+        allowNull: false,
+      },
       image: {
         type: DataTypes.STRING,
         validate:{
