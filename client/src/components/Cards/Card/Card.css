@@ -1,0 +1,20 @@
+#card{
+    width: 350px;
+    background-color: rgb(32 32 32);
+}
+.img{
+    width: 350px;
+    height: 210px;
+    object-fit: cover;
+    object-position: top center;
+}
+.platform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.platform img{
+    display: flex;
+    width: 25px;
+    margin: 0 5px;
+}

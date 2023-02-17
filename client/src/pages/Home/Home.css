@@ -1,0 +1,9 @@
+
+.cards{
+    display: flex;
+}
+.Filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
