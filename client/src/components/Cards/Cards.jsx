@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
 import { getGames } from '../../redux/actions';
 import Pagination from '../Pagination/Pagination';
 import Card from './Card/Card';
 // import Loader from '../Loader/Loader';
 import './Cards.css';
 
-
-function Cards({currentPage, setCurrentPage, gamesPerPage, indexOfFirstGame, indexOfLastGame}) {
+function Cards({ currentPage, setCurrentPage, gamesPerPage, indexOfFirstGame, indexOfLastGame }) {
     const dispatch = useDispatch();
     
     // Ejecuta getgames para traer los datos y guardarlos en el estado games
@@ -29,10 +29,11 @@ function Cards({currentPage, setCurrentPage, gamesPerPage, indexOfFirstGame, ind
     const cards = () => {
         return (
             currentGame.map( ( game, i ) => (
-                <Card 
-                    games = { game }
-                    key = { game.id }
-                /> 
+                <Link to={ `/detail/${ game.id }` } key={ i } className="linkDetails">
+                    <Card 
+                        games = { game }
+                    /> 
+                </Link>
             ))
         );
     };

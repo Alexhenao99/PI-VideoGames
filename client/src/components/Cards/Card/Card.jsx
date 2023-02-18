@@ -8,10 +8,12 @@ import android from '../../../Images/Platforms/android.png';
 import './Card.css';
 
 function Card({ games }) {
-    const {name, image, parent_platforms, genres, releaseDate, rating} = games;
+    const { name, image, parent_platforms, genres } = games;
     
+    // muestra el logo de la plataforma
     const platforms = ( platforms ) => {
         return(
+            // eslint-disable-next-line array-callback-return
             platforms.map( ( platform ) => {
                 switch (platform.toLowerCase()) {
                     case 'xbox':
@@ -39,14 +41,14 @@ function Card({ games }) {
             <div className='cardInfo'>
                 <section className='cardClose'>
                     <section className='platform'>
-                        {platforms(parent_platforms)}
+                        { platforms( parent_platforms ) }
                     </section>
                     <h1 className='name'> { name } </h1>
-                    <h2 className='rating'> { rating } </h2>
                 </section>
                 <section className='cardOpen'>
-                    <p className='relaseDate'> { releaseDate } </p>
-                    <p className='cardGenres'> { genres.map(genre => genre.name).join(', ') } </p>
+                    <p className='cardGenres'> 
+                        { genres.map(genre => genre.name).join(', ') } 
+                    </p>
                 </section>
             </div>
         </div>

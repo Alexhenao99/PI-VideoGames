@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Cards from '../../components/Cards/Cards'
+import Filter from '../../components/Filters/Filter'
 import './Home.css'
 
 const Home = () => {
@@ -16,7 +17,7 @@ const Home = () => {
     
     return (
         <div id="home">
-            <section className='Filters'>
+            {/* <section className='Filters'>
                 <select name="geners_option_list" id="geners_option_list">
                     <option value="all"> Genres </option>
                 </select>
@@ -38,26 +39,26 @@ const Home = () => {
                     <option value="api"> Api </option>
                     <option value="Basedata"> By Users </option>
                 </select>
-            </section>
-            {/* <div className='div_filtro_ordernamineto'>
-                <Filtros currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            </section> */}
+            <div className='div_filtro_ordernamineto'>
+                <Filter currentPage={ currentPage } setCurrentPage={ setCurrentPage } />
                 <div className='div_ordernamiento'>
-                    <span className='ordenar_text'>Ordernar por :</span>
+                    {/* <span className='ordenar_text'>Ordernar por :</span>
                     <select className='select_ordernamiento' onChange={handleChange}>
-                    <option className='option_name' value="name_asc">Nombre (asc)</option>
-                    <option className='option_name' value="name_des">Nombre (des)</option>
-                    <option className='option_name' value="peso_asc">Peso (asc)</option>
-                    <option className='option_name' value="peso_des">Peso (des)</option>
-                    </select>
+                        <option className='option_name' value="name_asc">Nombre (asc)</option>
+                        <option className='option_name' value="name_des">Nombre (des)</option>
+                        <option className='option_name' value="peso_asc">Peso (asc)</option>
+                        <option className='option_name' value="peso_des">Peso (des)</option>
+                    </select> */}
                 </div>
-            </div> */}
+            </div>
             <section className='cards'>
                 <Cards
-                    currentPage={currentPage} 
-                    setCurrentPage={setCurrentPage} 
-                    gamesPerPage={gamesPerPage} 
-                    indexOfFirstGame={indexOfFirstGame} 
-                    indexOfLastGame={indexOfLastGame}       
+                    currentPage={ currentPage } 
+                    setCurrentPage={ setCurrentPage } 
+                    gamesPerPage={ gamesPerPage } 
+                    indexOfFirstGame={ indexOfFirstGame } 
+                    indexOfLastGame={ indexOfLastGame }       
                 />
             </section>
         </div>
