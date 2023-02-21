@@ -1,18 +1,26 @@
 import React from 'react'
-import CreatedFilter from "./CreatedFilters";
+import OrderFilter from './OrderFilter';
+import CreatedFilter from "./OriginFilter";
+import PlatformFilter from './PlatformFilter';
+import GenreFilter from './GenreFilter';
 // import 'Filter.css'
 
-function Filter({ currentPage, setCurrentPage }) {
+function Filter({ setCurrentPage }) {
     return (
         <div id="Filtro">
                 <div className="Filtros">
-                    <div className="createdFilter">
-                        <CreatedFilter currentPage={currentPage} setCurrentPage={setCurrentPage} />
+                    <div className="orderFilter">
+                        <OrderFilter setCurrentPage={ setCurrentPage }/>
                     </div>
-                    {/* <div className="div_fil">
-                        <span className="filtro_name">Temperamentos</span>
-                        <FiltroTemperamento currentPage={currentPage} setCurrentPage={setCurrentPage} />
-                    </div> */}
+                    <div className="createdFilter">
+                        <CreatedFilter setCurrentPage={ setCurrentPage }/>
+                    </div>
+                    <div className="platformFilter">
+                        <PlatformFilter setCurrentPage={ setCurrentPage }/>
+                    </div>
+                    <div className="genreFilter">
+                        <GenreFilter setCurrentPage={ setCurrentPage }/>
+                    </div>
                 </div>
         </div>
     )
