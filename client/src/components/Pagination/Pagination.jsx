@@ -44,21 +44,21 @@ function Pagination({ gamesPerPage, totalPosts, paginate, currentPage, setCurren
     return(
         <div id="pagination">
             <ul className="pagination">
-                <button className="page" onClick={ handlePrev }> Prev </button>
+                { pageNumbers.length === 0 ? <p style={{display:"none"}}/> : <button className="page" onClick={ handlePrev }> Prev </button> }
                 { 
                     pageNumbers.map(( page, i ) => {
                         if( page < maxPageNumberLimit + 1 && page > minPageNumberLimit ) {
                             return (
-                            <li key={ i } className="paginationItem">
-                                <span className={ currentPage === page ? "page active" : "page" } onClick={ () => paginate( page ) } > { page } </span>
-                            </li>
+                                <li key={ i } className="paginationItem">
+                                    <span className={ currentPage === page ? "page active" : "page" } onClick={ () => paginate( page ) } > { page } </span>
+                                </li>
                             )
                         } else {
                             return null
                         }
                     })
                 }
-                <button className="page" onClick={ handleNext }> Next </button>
+                { pageNumbers.length === 0 ? <p style={{display:"none"}} /> : <button className="page" onClick={ handleNext }> Next </button> }
             </ul>
         </div>
     )
