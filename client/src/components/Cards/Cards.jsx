@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
+import Loader from '../../pages/Loader/Loader';
 import { getGames } from '../../redux/actions';
 import Pagination from '../Pagination/Pagination';
 import Card from './Card/Card';
@@ -45,7 +46,7 @@ function Cards({ currentPage, setCurrentPage, gamesPerPage, indexOfFirstGame, in
                 { 
                     games.includes( 'Not found' ) 
                         ? <div className="notFoundGames"> { games } </div> 
-                        : /*games.length !== 0 ?*/ cards() /*: <Loader />*/
+                        : games.length !== 0 ? cards() : <Loader/>
                 }
             </div>
             <Pagination 
