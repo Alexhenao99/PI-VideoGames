@@ -22,7 +22,7 @@ function Nav() {
                     placeholder="Search videogame..."
                     type="text"
                 />
-                <Link to={`/results/${name}`}>
+                <Link to={`/games/${name}`}>
                     <button name="name" type="submit" onClick={ resetValueSearch }> Go! </button>
                 </Link>
             </div>

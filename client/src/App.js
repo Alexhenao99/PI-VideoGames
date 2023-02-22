@@ -15,9 +15,9 @@ function App() {
       {location.pathname !== '/' && <Nav/>} 
       <Route exact path={'/'} component={ Landing } />
       <Route exact path={'/home'} component={ Home } />
-      <Route exact path="/results/:name" component={ Searchbar } />
-      <Route exact path={'/creategame'} component={ CreateGame } />
+      <Route exact path={'/games/:name'} component={ Searchbar } />
       <Route exact path={'/detail/:id'} component={ Detail } />
+      <Route exact path={'/creategame'} component={ CreateGame } />
       {location.pathname !== '/' && <Footer/>} 
     </div>
   );
