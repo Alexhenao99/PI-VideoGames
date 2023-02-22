@@ -3,6 +3,7 @@ import axios from 'axios'
 export const GET_GAMES       =  "GET_USERS";
 export const GET_GENRES      =  "GET_GENRES"
 export const GET_DETAILS     =  "GET_DETAILS";
+export const SEARCH_GAMES    =  "SEARCH_GAMES";
 export const FILTER_CREATED  =  "FILTER_CREATED";
 export const FILTER_ORDER    =  "FILTER_ORDER";
 export const FILTER_RATING   =  "FILTER_RATING";
@@ -54,6 +55,22 @@ export const getDetails = ( id ) => {
         }
     }
 };
+
+export const searchGames = ( name ) => {
+    const url = `http://localhost:3001/games?name=${name}`;
+    return async function ( dispatch ) {
+        try {
+            const games = await axios.get( url )
+            return dispatch({ 
+                type: SEARCH_GAMES, 
+                payload: games.data
+            })
+            
+        } catch (error) {
+            console.log( error );
+        }
+    }
+}
 
 export const filterCreated = ( payload ) => {
     return {

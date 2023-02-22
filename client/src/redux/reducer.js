@@ -6,12 +6,14 @@ import {
     FILTER_RATING, 
     GET_DETAILS, 
     GET_GAMES, 
-    GET_GENRES 
+    GET_GENRES, 
+    SEARCH_GAMES
 } from "./actions"
 
 const initalState = {
     games: [],
     detailGame: [],
+    searchGames: [],
     gamesFilter: [],
     genresFilter: [],
 }
@@ -33,6 +35,11 @@ export default function rootReducer( state = initalState, { type, payload }) {
                 return {
                     ...state,
                     detailGame: payload
+                };
+        case SEARCH_GAMES:
+                return {
+                    ...state,
+                    searchGames: payload
                 };
         case FILTER_CREATED:
             const gamesCreatedFilter = state.gamesFilter;
