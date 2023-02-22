@@ -10,8 +10,7 @@ export const FILTER_GENRE    =  "FILTER_GENRE";
 export const FILTER_PLATFORM =  "FILTER_PLATFORM";
 
 export const getGames = () => {
-    const url = "http://localhost:3001/games"
-    
+    const url = "http://localhost:3001/games";
     return async function( dispatch ) {
         try {
             const games = await axios.get( url )
@@ -26,7 +25,7 @@ export const getGames = () => {
 }
 
 export const getGenres = () => {
-    const url = "http://localhost:3001/genres"
+    const url = "http://localhost:3001/genres";
     return async function ( dispatch ) {
         try {
             const genres = await axios.get( url )
@@ -40,6 +39,21 @@ export const getGenres = () => {
         }
     }
 }
+
+export const getDetails = ( id ) => {
+    const url = `http://localhost:3001/games/${id}`;
+    return async function ( dispatch ) {
+        try {
+            const detail = await axios.get( url )
+            return dispatch({
+                type: GET_DETAILS,
+                payload: detail.data
+            })
+        } catch (error) {
+            
+        }
+    }
+};
 
 export const filterCreated = ( payload ) => {
     return {

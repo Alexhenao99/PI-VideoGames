@@ -4,12 +4,14 @@ import {
     FILTER_ORDER, 
     FILTER_PLATFORM, 
     FILTER_RATING, 
+    GET_DETAILS, 
     GET_GAMES, 
     GET_GENRES 
 } from "./actions"
 
 const initalState = {
     games: [],
+    detailGame: [],
     gamesFilter: [],
     genresFilter: [],
 }
@@ -25,8 +27,13 @@ export default function rootReducer( state = initalState, { type, payload }) {
         case GET_GENRES:
             return {
                 ...state,
-                genresFilter: payload
+                genresFilter: payload,
             };
+        case GET_DETAILS:
+                return {
+                    ...state,
+                    detailGame: payload
+                };
         case FILTER_CREATED:
             const gamesCreatedFilter = state.gamesFilter;
             const createdFilter = payload === "created"  
