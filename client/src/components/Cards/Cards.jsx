@@ -42,14 +42,18 @@ function Cards({ currentPage, setCurrentPage, gamesPerPage, indexOfFirstGame, in
     return(
         <div className='Cards_component'>
             <div className='Cards'>
-                {/*games.length !== 0 ?*/ cards() /*: <Loader />*/}
+                { 
+                    games.includes( 'Not found' ) 
+                        ? <div className="notFoundGames"> { games } </div> 
+                        : /*games.length !== 0 ?*/ cards() /*: <Loader />*/
+                }
             </div>
             <Pagination 
-                gamesPerPage={gamesPerPage} 
-                totalPosts={games.length} 
-                paginate={paginate} 
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
+                gamesPerPage={ gamesPerPage } 
+                totalPosts={ Array.isArray( games ) ? games.length : 0 } 
+                paginate={ paginate } 
+                currentPage={ currentPage }
+                setCurrentPage={ setCurrentPage }
             />
         </div>
     );

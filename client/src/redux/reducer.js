@@ -82,15 +82,16 @@ export default function rootReducer( state = initalState, { type, payload }) {
             };
         case FILTER_GENRE: 
             const gamesGenreFilter = state.gamesFilter;
-            const genresFilter = payload === "All" ? gamesGenreFilter 
+            const genresFilter = payload === "All" 
+                ? gamesGenreFilter 
                 : gamesGenreFilter
                     .filter( game => game.genres
                         .map( p => p.name)
                         .includes( payload )
                     );
-            return{
+        return{
                 ...state,
-                games: genresFilter,
+                games: genresFilter.length === 0  ? `Not found games with the genre: ${ payload }` : genresFilter,
             };
         default:
             return { ...state };
