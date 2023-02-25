@@ -10,9 +10,7 @@ const SearchVideogame = ({ videogames }) => {
             {
                 videogames.length > 0 
                     ? videogames.map( ( game, i ) => ( 
-                        <Link to={ `/detail/${ game.id }` } key={ i } className="linkDetails">
                             <Card games={ game } key={ i }/> 
-                        </Link>
                     ))
                     : <Loader/>
             }
