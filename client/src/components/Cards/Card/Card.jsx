@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Images
 import xbox from '../../../Images/Platforms/xbox.png';
 import playstation from '../../../Images/Platforms/playstation.png';
 import nintendo from '../../../Images/Platforms/nintendo.png';
@@ -6,9 +8,10 @@ import pc from '../../../Images/Platforms/pc.png';
 import android from '../../../Images/Platforms/android.png';
 
 import './Card.css';
+import { Link } from 'react-router-dom';
 
 function Card({ games }) {
-    const { name, image, rating, parent_platforms, genres } = games;
+    const { id, name, image, rating, parent_platforms, genres } = games;
     
     // muestra el logo de la plataforma
     const platforms = ( platforms ) => {
@@ -17,15 +20,15 @@ function Card({ games }) {
             platforms.map( ( platform, i ) => {
                 switch (platform.toLowerCase()) {
                     case 'xbox':
-                        return <img src={ xbox } alt="Logo Xbox" key={ i }/>
+                        return <img className='logoPlatform' src={ xbox } alt="Logo Xbox" key={ i }/>
                     case 'playstation':
-                        return <img src={ playstation } alt="Logo Playstation" key={ i }/>
+                        return <img className='logoPlatform' src={ playstation } alt="Logo Playstation" key={ i }/>
                     case 'nintendo':
-                        return <img src={ nintendo } alt="Logo Nintendo" key={ i }/>
+                        return <img className='logoPlatform' src={ nintendo } alt="Logo Nintendo" key={ i }/>
                     case 'pc':
-                        return <img src={ pc } alt="Logo Pc" key={ i }/>
+                        return <img className='logoPlatform' src={ pc } alt="Logo Pc" key={ i }/>
                     case 'android':
-                        return <img src={ android } alt="Logo Android" key={ i }/>
+                        return <img className='logoPlatform' src={ android } alt="Logo Android" key={ i }/>
                     default:
                     break;
                 }
@@ -43,7 +46,9 @@ function Card({ games }) {
                     <section className='platform'>
                         { platforms( parent_platforms ) }
                     </section>
-                    <h1 className='name'> { name } </h1>
+                    <Link to={ `/detail/${ id }` } className="linkDetails">
+                        <h1 className='name'> { name } </h1>
+                    </Link>
                     <h1 className='rating'> { rating } </h1>
                 </section>
                 <section className='cardOpen'>

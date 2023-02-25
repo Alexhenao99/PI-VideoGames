@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
 import Loader from '../../pages/Loader/Loader';
 import { getGames } from '../../redux/actions';
 import Pagination from '../Pagination/Pagination';
@@ -29,12 +28,10 @@ function Cards({ currentPage, setCurrentPage, gamesPerPage, indexOfFirstGame, in
     // Cards
     const cards = () => {
         return (
-            currentGame.map( ( game, i ) => (
-                <Link to={ `/detail/${ game.id }` } key={ i } className="linkDetails">
+            currentGame.map( ( game ) => (
                     <Card 
                         games = { game }
                     /> 
-                </Link>
             ))
         );
     };
