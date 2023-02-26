@@ -1,5 +1,6 @@
 import { 
     CREATE_GAME,
+    DELETE_GAME,
     FILTER_CREATED, 
     FILTER_GENRE, 
     FILTER_ORDER, 
@@ -25,7 +26,6 @@ export default function rootReducer( state = initalState, { type, payload }) {
         case CREATE_GAME:
             return{
                 ...state,
-                // createGame: payload,
             }
         case GET_GAMES:
             return {
@@ -48,6 +48,10 @@ export default function rootReducer( state = initalState, { type, payload }) {
                     ...state,
                     searchGames: payload
                 };
+        case DELETE_GAME:
+                    return {
+                        ...state,
+                    };    
         case FILTER_CREATED:
             const gamesCreatedFilter = state.gamesFilter;
             const createdFilter = payload === "created"  

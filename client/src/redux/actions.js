@@ -11,6 +11,8 @@ export const FILTER_ORDER    = "FILTER_ORDER";
 export const FILTER_RATING   = "FILTER_RATING";
 export const FILTER_GENRE    = "FILTER_GENRE";
 export const FILTER_PLATFORM = "FILTER_PLATFORM";
+export const DELETE_GAME = "DELETE_GAME";
+
 
 // Create
 export const createGame = ( game ) => {
@@ -44,7 +46,7 @@ export const createGame = ( game ) => {
 //     }
 // };
 
-// Get info
+// Get Games
 export const getGames = () => {
     const url = "http://localhost:3001/games";
     return async function( dispatch ) {
@@ -103,6 +105,24 @@ export const searchGames = ( name ) => {
         }
     }
 }
+
+// Delete Game
+export const deleteGame = ( id ) => {
+
+    const url = `http://localhost:3001/games/delete/${id}`
+    return async function ( dispatch ){
+        try {
+            await axios.delete( url )
+            alert( "The game has been eliminated" )
+            return dispatch({ 
+                type: CREATE_GAME, 
+            })
+        } catch (error) {
+            console.log(error);
+            alert( "The game could not be deleted" )
+        }
+    }
+};
 
 // Filters
 export const filterCreated = ( payload ) => {
