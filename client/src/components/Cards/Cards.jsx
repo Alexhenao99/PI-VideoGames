@@ -28,9 +28,10 @@ function Cards({ currentPage, setCurrentPage, gamesPerPage, indexOfFirstGame, in
     // Cards
     const cards = () => {
         return (
-            currentGame.map( ( game ) => (
+            currentGame.map( ( game, i ) => (
                     <Card 
                         games = { game }
+                        key = { i }
                     /> 
             ))
         );
