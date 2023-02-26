@@ -24,7 +24,7 @@ export const createGame = ( game ) => {
             })
         } catch (error) {
             console.log( error );
-            alert( "The game has not been created" )
+            alert( `The ${ game.name } game already exists` )
         }
     }
 };

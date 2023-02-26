@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { createGame, getGenres } from '../../redux/actions';
-
-// Images
-import xbox from '../../Images/Platforms/xbox.png';
-import playstation from '../../Images/Platforms/playstation.png';
-import nintendo from '../../Images/Platforms/nintendo.png';
-import pc from '../../Images/Platforms/pc.png';
-import android from '../../Images/Platforms/android.png';
+import { platforms } from '../../components/Utils/Platforms';
 
 const CreateGame = () => {
     const dispatch = useDispatch();
@@ -35,7 +29,7 @@ const CreateGame = () => {
     ]);
     const [ platformSelect, setPlatformSelect ] = useState([]);
     const genres = useSelector( state => state.genresFilter );
-    const [ genreSelect, setGenreSelect ] = useState([])
+    const [ genreSelect, setGenreSelect ] = useState([]);
     
     //                  Handlers
     // Guarda los cambios en los estados
@@ -48,12 +42,20 @@ const CreateGame = () => {
             ...newGame,
             [inputName]: Number(value) ? Number(value) : value,
         });
+
+        // Valida los datos
+        // setErrors(validate({
+        //     ...newGame,
+        //     value: value
+        // }))
     };
 
     // Envia los datos al reducer
     const handleSubmit = ( event ) => {
         event.preventDefault();
-        dispatch( createGame(newGame) )
+        // if( !errors.name ){
+            dispatch( createGame(newGame) )
+        // }
     };
 
     //  Guarda y actualiza los estados segun las opciones
@@ -61,8 +63,9 @@ const CreateGame = () => {
     const handlePlatformSelect = ( event ) => {
         const platform = event.target.value
         
-        // Si la plataforma ya esta guardada en el estado newGame terminara la ejecucion
+        // Si la plataforma ya esta guardada en el estado newGame o si esta vacio y terminara la ejecucion
         if( newGame.parent_platforms.includes( platform )) return;
+        if(platform === "" ) return;
         
         // Guarda la plataforma en el estado newGame y en setPlatformSelect
         setNewGame({
@@ -81,6 +84,7 @@ const CreateGame = () => {
     const handleGenreSelect = ( event ) => {
         const genre = event.target.value
         if( newGame.parent_platforms.includes( genre )) return;
+        if( genre === "" ) return;
         setNewGame({
             ...newGame,
             genres: [ ...newGame.genres, genres.find( genreDb => genreDb.name === genre).id ]
@@ -94,29 +98,6 @@ const CreateGame = () => {
         setGenreSelect( genreSelect.filter( platform => platform !== value ));
     };
     
-    // funcion para mostrar los logos
-    const platforms = ( platforms ) => {
-        return(
-            // eslint-disable-next-line array-callback-return
-            platforms.map( ( platform, i ) => {
-                switch (platform) {
-                    case 'Xbox':
-                        return <img className='logoPlatform' src={ xbox } alt="Logo Xbox" key={ i }/>
-                    case 'PlayStation':
-                        return <img className='logoPlatform' src={ playstation } alt="Logo Playstation" key={ i }/>
-                    case 'Nintendo':
-                        return <img className='logoPlatform' src={ nintendo } alt="Logo Nintendo" key={ i }/>
-                    case 'Pc':
-                        return <img className='logoPlatform' src={ pc } alt="Logo Pc" key={ i }/>
-                    case 'Android':
-                        return <img className='logoPlatform' src={ android } alt="Logo Android" key={ i }/>
-                    default:
-                    break;
-                }
-            })
-        )
-    }
-    
     return (
         <div id="CreateGame">
             {/* Form Create */}
@@ -128,46 +109,46 @@ const CreateGame = () => {
                     {/* Name */}
                     <div className="inputName">
                         <label htmlFor="name"> Name * </label>
-                        <input type="text" className='input' name='name' onChange={ handleChange } />
+                            <input type="text" className='input' name='name' onChange={ handleChange } required  autoComplete='off' />
                     </div>
                     
                     {/* Image */}
                     <div className="inputImage">
                         <label htmlFor="image"> Image </label>
-                        <input type="url" id='img' className="input" name='image' onChange={ handleChange } />
+                        <input type="url" id='img' className="input" name='image' onChange={ handleChange }  autoComplete='off' />
                     </div>
                     
                     {/* Description */}
                     <div className="description">
                         <label htmlFor="description"> Description * </label>
-                        <textarea name="description"  className='input' onChange={ handleChange } cols="30" rows="10"></textarea>
+                        <textarea name="description"  className='input' onChange={ handleChange } cols="30" rows="10" required  autoComplete='off' ></textarea>
                     </div>
                     
                     {/* ReleaseDate */}
                     <div className="releaseDate">
-                        <label htmlFor="releaseDate"> Release Date </label>
-                        <input type="date" name="releaseDate" id="" className="input" onChange={ handleChange } />
+                        <label htmlFor="releaseDate"> Release Date * </label>
+                        <input type="date" name="releaseDate" id="" className="input" onChange={ handleChange } required autoComplete='off'/>
                     </div>
                     
                     {/* Rating */}
                     <div className="rating">
-                        <label htmlFor="rating"> Rating </label>
-                        <input type="text" className="input" name='rating' onChange={ handleChange } />
+                        <label htmlFor="rating"> Rating * </label>
+                        <input type="number" step="any" min={0} max={5} className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off'/>
                     </div>
                     
                     {/* Platforms */}
                     <div className="parent_platforms">
                         <div className="platformList">
-                            <label> Platforms * </label>
-                            <select className='selectOptions' name="platforms" onChange={ handlePlatformSelect } defaultValue={'DEFAULT'}>
-                            <option value="DEFAULT" disabled> None </option>
-                            {
-                                platformsOptions.map((platform, i) => {
-                                    return(
-                                        <option className='platformOption' key={ i } value={ platform }> { platform } </option>
-                                    )
-                                })
-                            }
+                            <label htmlFor='platforms'> Platforms * </label>
+                            <select className='selectOptions' name="platforms" onChange={ handlePlatformSelect } required >
+                                <option value=""> Select </option>
+                                    {
+                                        platformsOptions.map((platform, i) => {
+                                            return(
+                                                <option className='platformOption' key={ i } value={ platform }> { platform } </option>
+                                            )
+                                        })
+                                    }
                             </select>
                         </div>
                         <div className='platformTags'>
@@ -190,15 +171,15 @@ const CreateGame = () => {
                     <div className="genres">
                         <div className="genresList">
                             <label> Genres * </label>
-                            <select className='selectOptions' name="platforms" onChange={ handleGenreSelect } defaultValue={'DEFAULT'}>
-                            <option value="DEFAULT" disabled> None </option>
-                            {
-                                genres.map((genre, i) => {
-                                    return(
-                                        <option className='genreOption' key={ i } value={ genre.name }> { genre.name } </option>
-                                    )
-                                })
-                            }
+                            <select className='selectOptions' name="platforms" onChange={ handleGenreSelect } required >
+                                <option value=""> Select </option>
+                                {
+                                    genres.map((genre, i) => {
+                                        return(
+                                            <option className='genreOption' key={ i } value={ genre.name } > { genre.name } </option>
+                                        )
+                                    })
+                                }
                             </select>
                         </div>
                         <div className='GenresTags'>
@@ -231,11 +212,11 @@ const CreateGame = () => {
                             <h1 className='name'> { newGame.name } </h1>
                             <h1 className='rating'> { newGame.rating } </h1>
                         </section>
-                        {/* <section className='cardOpen'>
+                        <section className='cardOpen'>
                             <p className='cardGenres'> 
-                                { genres.map(genre => genre.name).join(', ') } 
+                                { genreSelect.join(", ") } 
                             </p>
-                        </section> */}
+                        </section>
                     </div>
                 </div>
             </div>
