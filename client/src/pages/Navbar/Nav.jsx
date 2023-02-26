@@ -10,10 +10,12 @@ function Nav() {
     return (
         <nav id="Nav">
             <Link to={ '/home' }>
+            {/* <a href="/home"> */}
                 <section className='logo'>
                     <img src={ logo } className='logo' alt="Logo" />
                     <p> Henry Games </p>
                 </section>
+            {/* </a> */}
             </Link>
             <div className="searchbar">
                 <input
