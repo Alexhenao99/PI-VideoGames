@@ -40,18 +40,18 @@ const Detail = () => {
     return (
         <div id="details">
             { 
-                detail ? 
+                detail.length === 0 ? 
                     <Link to={ "/home" }> <div className="notFound"> Game Not Found </div> </Link> 
-                        : detail.created === true 
-                        ? <div className="buttons">
-                            <Link to={`/updategema/${ id }`}>
-                                <button onClick={ () => handlerEdit() } > Edit </button>
-                            </Link>
-                            <a href="/home">
-                                <button onClick={ handlerDelete } > Delete </button>
-                            </a>
-                        </div>  
-                        : <p style={{display:'none'}}/> 
+                        : detail.created === true ? 
+                            <div className="buttons">
+                                <Link to={`/updategema/${ id }`}>
+                                    <button onClick={ () => handlerEdit() } > Edit </button>
+                                </Link>
+                                <a href="/home">
+                                    <button onClick={ handlerDelete } > Delete </button>
+                                </a>
+                            </div>  
+                            : <p style={{display:'none'}}/> 
             }
             <img src={ detail.image } alt={detail.name} style={{width:"500px"}} />
             <h1 className="name"> {detail.name} </h1>
