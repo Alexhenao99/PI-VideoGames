@@ -1,7 +1,6 @@
 import React from 'react'
 import Card from '../Cards/Card/Card'
 import Loader from '../../pages/Loader/Loader'
-import { Link } from 'react-router-dom'
 
 const SearchVideogame = ({ videogames }) => {
 
