@@ -13,11 +13,10 @@ const Detail = () => {
     useEffect( () => {
         dispatch( getDetails( id ))
     },[ dispatch, id ])   
-    
-    function description( about ) {
-        return about.includes('<p>') 
-        ? document.getElementById("description").innerHTML = about
-        : document.getElementById("description").innerHTML = "<p>"+about+"</p>"
+
+    function description() {
+        console.log(detail);
+        if(detail.length !== 0 ) document.getElementById("description").innerHTML = detail.description.replaceAll("\n", "<br>")
     }
     
     const platforms = ( platforms ) => {
@@ -28,13 +27,13 @@ const Detail = () => {
         if( genres ) return Object.values( genres.map( genre => genre.name ).join(", "))
     }
     
-    if(detail.length !== 0 && detail.id.toString() === id ) description( detail.description ) 
     
-    function handlerDelete(){
-        dispatch( deleteGame( id ) )
-    };
-    function handlerEdit(){
-        return console.log(id)
+    function handlerDelete() {
+        if( window.confirm("Are your sure?") === true ) {
+            dispatch( deleteGame( id ) )
+            alert( "The game has been eliminated" )
+            window.location.href="/home"
+        }
     };
     
     return (
@@ -44,18 +43,16 @@ const Detail = () => {
                     <Link to={ "/home" }> <div className="notFound"> Game Not Found </div> </Link> 
                         : detail.created === true ? 
                             <div className="buttons">
-                                <Link to={`/updategema/${ id }`}>
-                                    <button onClick={ () => handlerEdit() } > Edit </button>
+                                <Link className='btns' to={`/updategame/${ id }`}>
+                                    <button> Edit </button>
                                 </Link>
-                                <a href="/home">
-                                    <button onClick={ handlerDelete } > Delete </button>
-                                </a>
+                                <button className='btns' onClick={ handlerDelete } > Delete </button>
                             </div>  
                             : <p style={{display:'none'}}/> 
             }
             <img src={ detail.image } alt={detail.name} style={{width:"500px"}} />
             <h1 className="name"> {detail.name} </h1>
-            <div id="description"></div>
+            <div id="description">{description()}</div>
             <h1 className="name"> { platforms( detail.parent_platforms ) } </h1>
             <h1 className="name"> { detail.releaseDate } </h1>
             <h1 className="name"> { detail.rating } </h1>

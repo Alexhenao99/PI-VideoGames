@@ -7,6 +7,7 @@ import Detail from './pages/Detail/Detail';
 import Nav from './pages/Navbar/Nav';
 import Footer from './pages/Footer/Footer';
 import Searchbar from './pages/Navbar/Searchbar/Searchbar';
+import UpdateGame from './pages/Form/Update/UpdateGame';
 
 function App() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function App() {
       <Route exact path={'/games/:name'} component={ Searchbar } />
       <Route exact path={'/detail/:id'} component={ Detail } />
       <Route exact path={'/creategame'} component={ CreateGame } />
+      <Route exact path={'/updategame/:id'} component={ UpdateGame } />
       {location.pathname !== '/' && <Footer/>} 
     </div>
   );
