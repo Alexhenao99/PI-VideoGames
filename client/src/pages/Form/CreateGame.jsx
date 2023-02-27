@@ -42,20 +42,12 @@ const CreateGame = () => {
             ...newGame,
             [inputName]: Number(value) ? Number(value) : value,
         });
-
-        // Valida los datos
-        // setErrors(validate({
-        //     ...newGame,
-        //     value: value
-        // }))
     };
 
     // Envia los datos al reducer
-    const handleSubmit = ( event ) => {
-        event.preventDefault();
-        // if( !errors.name ){
+    const handleSubmit = () => {
             dispatch( createGame(newGame) )
-        // }
+            alert("Game Created")
     };
 
     //  Guarda y actualiza los estados segun las opciones
@@ -133,7 +125,7 @@ const CreateGame = () => {
                     {/* Rating */}
                     <div className="rating">
                         <label htmlFor="rating"> Rating * </label>
-                        <input type="number" step="any" min={0} max={5} className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off'/>
+                        <input type="number" step="any" min={0} max={5} maxlength="20" className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off'/>
                     </div>
                     
                     {/* Platforms */}
