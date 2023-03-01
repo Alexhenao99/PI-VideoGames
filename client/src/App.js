@@ -9,7 +9,7 @@ import Footer from './pages/Footer/Footer';
 import Searchbar from './pages/Navbar/Searchbar/Searchbar';
 import UpdateGame from './pages/Form/Update/UpdateGame';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'https://pi-videogames-production-3414.up.railway.app';
 
 function App() {
   const location = useLocation();
