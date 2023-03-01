@@ -8,6 +8,8 @@ import Nav from './pages/Navbar/Nav';
 import Footer from './pages/Footer/Footer';
 import Searchbar from './pages/Navbar/Searchbar/Searchbar';
 import UpdateGame from './pages/Form/Update/UpdateGame';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 function App() {
   const location = useLocation();
