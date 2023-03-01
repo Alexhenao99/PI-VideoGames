@@ -7,19 +7,19 @@ function Card({ games }) {
     const { id, name, image, rating, parent_platforms, genres } = games;
     
     return(
-        <div className='card'>
-            <div className='imgCard'>
-                <img className='img' src={ image } alt={ name } />
-            </div>
+        <div id='card'>
+            <Link to={ `/detail/${ id }` } className="linkDetails">
+                <div className='imgCard'>
+                    <img className='img' src={ image } alt={ name } />
+                </div>
+            </Link>
             <div className='cardInfo'>
                 <section className='cardClose'>
+                    <button value={Math.round(rating)} className='rating'> { rating } </button>
                     <section className='platform'>
                         { platforms( parent_platforms ) }
                     </section>
-                    <Link to={ `/detail/${ id }` } className="linkDetails">
                         <h1 className='name'> { name } </h1>
-                    </Link>
-                    <h1 className='rating'> { rating } </h1>
                 </section>
                 <section className='cardOpen'>
                     <p className='cardGenres'> 

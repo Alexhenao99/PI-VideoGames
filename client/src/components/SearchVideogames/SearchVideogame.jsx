@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from '../Cards/Card/Card'
 import Loader from '../../pages/Loader/Loader'
+import './SearchVideogame.css'
 
 const SearchVideogame = ({ videogames }) => {
 

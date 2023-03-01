@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { createGame, getGenres } from '../../redux/actions';
 import { platforms } from '../../components/Utils/Platforms';
+import { Link } from 'react-router-dom';
+import './CreateGame.css'
 
 const CreateGame = () => {
     const dispatch = useDispatch();
@@ -12,12 +14,12 @@ const CreateGame = () => {
 
     //              Estados
     const [ newGame, setNewGame ] = useState({
-        name: "",
+        name: "Example Game",
         description: "",
         parent_platforms: [],
-        image: "https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/media/image/2021/04/juegos-gratis-fin-semana-2309435.jpg",
+        image: "https://i0.wp.com/www.marcelopedra.com.ar/blog/wp-content/uploads/2013/10/animated-gifs-of-fighting-game-backgrounds-7.gif?resize=624%2C396&ssl=1",
         releaseDate: "",
-        rating: 0,
+        rating: 3.4,
         genres: []
     });
     const [ platformsOptions ] = useState([
@@ -91,124 +93,130 @@ const CreateGame = () => {
     };
     
     return (
-        <div id="CreateGame">
-            {/* Form Create */}
-            <div className="createGameContainer">
-                <h1> Agega un nuevo juego </h1>
-                <p> Los datos con * son obligatorios </p>
-                <form className='form' action="" onSubmit={ handleSubmit } >
-                    
-                    {/* Name */}
-                    <div className="inputName">
-                        <label htmlFor="name"> Name * </label>
-                            <input type="text" className='input' name='name' onChange={ handleChange } required  autoComplete='off' />
-                    </div>
-                    
-                    {/* Image */}
-                    <div className="inputImage">
-                        <label htmlFor="image"> Image </label>
-                        <input type="url" id='img' className="input" name='image' onChange={ handleChange }  autoComplete='off' />
-                    </div>
-                    
-                    {/* Description */}
-                    <div className="description">
-                        <label htmlFor="description"> Description * </label>
-                        <textarea name="description"  className='input' onChange={ handleChange } cols="30" rows="10" required  autoComplete='off' ></textarea>
-                    </div>
-                    
-                    {/* ReleaseDate */}
-                    <div className="releaseDate">
-                        <label htmlFor="releaseDate"> Release Date * </label>
-                        <input type="date" name="releaseDate" id="" className="input" onChange={ handleChange } required autoComplete='off'/>
-                    </div>
-                    
-                    {/* Rating */}
-                    <div className="rating">
-                        <label htmlFor="rating"> Rating * </label>
-                        <input type="number" step="any" min={0} max={5} maxlength="20" className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off'/>
-                    </div>
-                    
-                    {/* Platforms */}
-                    <div className="parent_platforms">
+        <div className="createGame">
+            <div className='titleCG'>
+                <Link to={'/home'}>
+                    <button id='btnHomeCG' className='goHome'> Go Home </button>
+                </Link>
+                <h1 className='tituloCG'> Add a new game </h1>
+                <p className='subTtituloCG'> Fields marked with * are mandatory </p>
+            </div>
+            <div id="CreateGame">
+                {/* Form Create */}
+                <div className="createGameContainer">
+                    <form className='form' action="" onSubmit={ handleSubmit } >
+                        {/* Name */}
+                        <div className="sectionInputCG">
+                            <label className='label' htmlFor="name"> Name * </label>
+                            <input type="text" className='input' name='name' onChange={ handleChange } required  autoComplete='off' placeholder='Name of the game...'/>
+                        </div>
+                        
+                        {/* Image */}
+                        <div className="sectionInputCG">
+                            <label className='label' htmlFor="image"> Url Image </label>
+                            <input type="url" id='img' className="input" name='image' onChange={ handleChange }  autoComplete='off' placeholder={newGame.image} />
+                        </div>
+                        
+                        {/* Description */}
+                        <div className="sectionInputCG">
+                            <label className='label' htmlFor="description"> Description * </label>
+                            <textarea name="description" id='descriptionCG'  className='input' onChange={ handleChange } cols="30" rows="10" required  autoComplete='off' placeholder='Type the description...' ></textarea>
+                        </div>
+                        
+                        {/* ReleaseDate */}
+                        <div className="sectionInputCG">
+                            <label className='label' htmlFor="releaseDate"> Release Date * </label>
+                            <input type="date" name="releaseDate" id="dateCG" className="input" onChange={ handleChange } required autoComplete='off'/>
+                        </div>
+                        
+                        {/* Rating */}
+                        <div className="sectionInputCG">
+                            <label className='label' htmlFor="rating"> Rating * </label>
+                            <input type="number" step="any" min={0} max={5} maxlength="20" className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off' placeholder='Rate the game from 0 to 5...'/>
+                        </div>
+                        
+                        {/* Platforms */}
                         <div className="platformList">
-                            <label htmlFor='platforms'> Platforms * </label>
-                            <select className='selectOptions' name="platforms" onChange={ handlePlatformSelect } required >
-                                <option value=""> Select </option>
-                                    {
-                                        platformsOptions.map((platform, i) => {
-                                            return(
-                                                <option className='platformOption' key={ i } value={ platform }> { platform } </option>
-                                            )
-                                        })
-                                    }
-                            </select>
-                        </div>
-                        <div className='platformTags'>
-                            <ul className='TagsList'>
-                            {
-                                platformSelect.map(( platform, i ) => {
-                                    return(
-                                        <li className='li_temp' key={i}>
-                                            { platform }
-                                            <button className='btnDelete' type='button' value={ platform } onClick={ handlePlatformDelete }> x </button>
-                                        </li>
-                                    )
-                                })
-                            }
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    {/* Genres */}
-                    <div className="genres">
-                        <div className="genresList">
-                            <label> Genres * </label>
-                            <select className='selectOptions' name="platforms" onChange={ handleGenreSelect } required >
-                                <option value=""> Select </option>
+                            <div className="sectionInputCG">
+                                <label className='label' > Platforms * </label>
+                                <select className='selectOptions' name="platforms" onChange={ handlePlatformSelect } required >
+                                    <option className='optionsAllCGD' value=""> Select </option>
+                                        {
+                                            platformsOptions.map((platform, i) => {
+                                                return(
+                                                    <option className='optionsCG' key={ i } value={ platform }> { platform } </option>
+                                                )
+                                            })
+                                        }
+                                </select>
+                            </div>
+                            <div className='tagList'>
                                 {
-                                    genres.map((genre, i) => {
+                                    platformSelect.map(( platform, i ) => {
                                         return(
-                                            <option className='genreOption' key={ i } value={ genre.name } > { genre.name } </option>
+                                            <div className='listCG' key={i}>
+                                                { platform }
+                                                <button className='btnDelete' type='button' value={ platform } onClick={ handlePlatformDelete }> X </button>
+                                            </div>
                                         )
                                     })
                                 }
-                            </select>
+                            </div>
                         </div>
-                        <div className='GenresTags'>
-                            <ul className='TagsList'>
-                            {
-                                genreSelect.map(( platform, i ) => {
-                                    return(
-                                        <li className='li_temp' key={i}>
-                                            { platform }
-                                            <button className='btnDelete' type='button' value={ platform } onClick={ handleGenreDelete }> x </button>
-                                        </li>
-                                    )
-                                })
-                            }
-                            </ul>
+                        
+                        {/* Genres */}
+                        <div className="genresList">
+                            <div className="sectionInputCG">
+                                <label className='label' > Genres * </label>
+                                <select className='selectOptions' name="platforms" onChange={ handleGenreSelect } required >
+                                    <option className='optionsAllCGD' value=""> Select </option>
+                                    {
+                                        genres.map((genre, i) => {
+                                            return(
+                                                <option className='optionsCG' key={ i } value={ genre.name } > { genre.name } </option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div className='tagList'>
+                                {
+                                    genreSelect.map(( platform, i ) => {
+                                        return(
+                                            <div className='listCG' key={i}>
+                                                { platform }
+                                                <button className='btnDelete' type='button' value={ platform } onClick={ handleGenreDelete }> X </button>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
-                    </div>
-                    <input type="submit" value="Create" />
-                </form>
+                        <section className='ScCg'>
+                            <button className='createBtn' type="submit"> Create Game </button>
+                        </section>
+                    </form>
+                </div>
                 {/* Preview */}
-                <div className="preview">
-                    <div className='imgCard'>
-                        <img className='imgPreview' src={ newGame.image } alt='Game' />
-                    </div>
-                    <div className='cardInfo'>
-                        <section className='cardClose'>
-                            <section className='platform'>
-                                { platforms( newGame.parent_platforms ) }
+                <div className='CardPreview'>
+                    <div id='card'>
+                        <div className='imgCard'>
+                            <img className='img' src={ newGame.image } alt='Game' />
+                        </div>
+                        <div className='cardInfo'>
+                            <section className='cardClose'>
+                                <button className='rating' value={ Math.round(newGame.rating) } > { newGame.rating } </button>
+                                <section className='platform'>
+                                    { platforms( newGame.parent_platforms ) }
+                                </section>
+                                <h1 className='name'> { newGame.name } </h1>
                             </section>
-                            <h1 className='name'> { newGame.name } </h1>
-                            <h1 className='rating'> { newGame.rating } </h1>
-                        </section>
-                        <section className='cardOpen'>
-                            <p className='cardGenres'> 
-                                { genreSelect.join(", ") } 
-                            </p>
-                        </section>
+                            <section className='cardOpen'>
+                                <p className='cardGenres'> 
+                                    { genreSelect.join(", ") } 
+                                </p>
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>

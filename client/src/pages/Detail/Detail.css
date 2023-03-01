@@ -1,0 +1,194 @@
+#details{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient( 
+            rgba(15, 15, 15, 0), 
+            rgb(21, 21, 21)
+        ),
+        linear-gradient(
+            rgba(21, 21, 21, 0.8), 
+            rgba(21, 21, 21, 0.5)
+        ),
+        url("https://i.pinimg.com/originals/c6/33/c2/c633c20ede82f0e0ced7d570dbe3a1f3.gif")
+    ;
+    background-position: center;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.goHome{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Tilt Neon', cursive;
+    font-size: 15px;
+    padding: 10px 0;
+    width: 100px;
+    appearance: none;
+    background: linear-gradient(0deg, 
+        rgba(34,193,195,1) 0%,
+        rgba(253,187,45,1) 100%
+    );
+    color: #ffffff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 25px rgba(140, 255, 0, 0.5);
+    transition: all 1s;
+}
+.goHome:hover{
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    transform: scale(1.1);
+}
+
+.detailName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px 0 15px 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Rampart One', cursive;
+    font-size: calc(4em + 1vw);
+    background: -webkit-linear-gradient(
+        rgba(63,94,251,1), 
+        rgba(252,70,107,1) 100%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.detailImg{
+    width: 80%;
+    margin-top: 20px;
+    box-shadow: 
+        rgb(85, 91, 255) 0px 0px 0px 3px, 
+        rgb(31, 193, 27) 0px 0px 0px 6px, 
+        rgb(255, 217, 19) 0px 0px 0px 9px, 
+        rgb(255, 156, 85) 0px 0px 0px 12px, 
+        rgb(255, 85, 85) 0px 0px 0px 15px
+    ;
+    border-radius: 15px 0 ;
+}
+
+.detailAbout{
+    margin-top: 50px;
+}
+
+#description{
+    width: 80%;
+}
+
+.moreInfo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+.sections{
+    width: 200px;
+    height: 100%;
+}
+
+.detailRaiting{
+    font-size: 25px;
+    background-color: transparent;
+    border-radius: 5px ;
+    border: solid 2px;
+    padding: 10px;
+}
+.detailRaiting[ value = '5' ]{
+    color: #6dc849;
+    border-color: #6dc849;
+}
+.detailRaiting[ value = '4' ]{
+    color: #6dc849;
+    border-color: #6dc849;
+}
+.detailRaiting[ value = '3' ]{
+    color: #e17108;
+    border-color: #e17108;
+}
+.detailRaiting[ value = '2' ]{
+    color: #e17108;
+    border-color: #e17108;
+}
+.detailRaiting[ value = '1' ]{
+    color: #fe0000;
+    border-color: #fe0000;
+}
+.detailRaiting[ value = '0' ]{
+    color: #fe0000;
+    border-color: #fe0000;
+}
+
+.Subtitle{
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: hsla(0,0%,100%,.2);
+    height: 40px;
+}
+
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+} 
+
+.btns{
+    font-family: 'Tilt Neon', cursive;
+    font-size: 30px;
+    padding: 10px 0;
+    margin-top: 50px;
+    width: 200px;
+    appearance: none;
+    background: linear-gradient(0deg, 
+        rgba(34,193,195,1) 0%,
+        rgba(253,187,45,1) 100%
+    );
+    color: #ffffff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 25px rgba(140, 255, 0, 0.5);
+    transition: all 1s;
+}
+.btns:hover{
+    background: linear-gradient(90deg, 
+        rgba(63,94,251,1) 0%, 
+        rgba(252,70,107,1) 100%
+    );
+    box-shadow: 0 2px 25px rgba(71, 133, 155, 0.5);
+    color: #000000;
+    transform: scale(1.2);
+}
+#btnDelete:hover{
+    background: linear-gradient(90deg, 
+        rgba(131,58,180,1) 0%,
+        rgba(253,29,29,1) 50%, 
+        rgba(252,176,69,1) 100%
+    );
+}
+
+@media screen and (max-width: 510px) {
+    .detailName{
+        font-size: calc(3em + 1vw);
+        margin: 80px 10px 30px 0;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .detailName{
+        font-size: calc(2.5em + 1vw);
+        margin: 80px 10px 30px 0;
+    }
+}

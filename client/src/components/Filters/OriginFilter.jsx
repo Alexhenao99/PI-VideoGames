@@ -1,6 +1,7 @@
 import React from 'react'
 import { filterCreated } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
+import './Css/Filter.css'
 
 function CreatedFilter({ setCurrentPage }) {
     const dispatch = useDispatch();
@@ -12,11 +13,11 @@ function CreatedFilter({ setCurrentPage }) {
     }
     return (
         <div id='CreatedFilters'>
-            <select onChange={ handleSelect } defaultValue={'DEFAULT'}>
-                <option value="DEFAULT" disabled> Origin </option>
-                <option value="All"> All </option>
-                <option value="Api"> API </option>
-                <option value="created"> Database </option>
+            <select className='createdFiltersList' onChange={ handleSelect } defaultValue={'DEFAULT'}>
+                <option className='origionOptionsD' value="DEFAULT" disabled> Origin </option>
+                <option className='origionOptions' value="All"> All </option>
+                <option className='origionOptions' value="Api"> API </option>
+                <option className='origionOptions' value="created"> Database </option>
             </select>
         </div>
     )

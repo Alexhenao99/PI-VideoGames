@@ -1,0 +1,130 @@
+#Nav{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20% 70% 10%;
+    padding: 20px 10px;
+    /* background-color: blanchedalmond; */
+}
+
+.navLogo{
+    display: flex;
+    align-items: center;
+}
+
+.navLogoImg{
+    width: 30%;
+    margin-right: 10px;
+    transition: all 2s;
+}
+.navLogoImg:hover{
+    transform: scale(1.2) rotate(360deg);
+}
+
+.navTitle{
+    text-align: start;
+    font-family: 'Rampart One', cursive;
+    font-size:  calc(0.9em + 1vw);
+    padding-right: 2px;
+    color: #ffffff;
+    width: 100%;
+    margin: 0;
+}
+.navTitle:hover{
+    background: -webkit-linear-gradient(#30E3DF, #FCE22A);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Searbar{
+    position: relative;
+}
+
+#search{
+    height: 44px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    color: hsla(0,0%,100%,.6);
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIG9wYWNpdHk9Jy40JyB3aWR0aD0nMzEnIGhlaWdodD0nMzEnIHZpZXdCb3g9JzAgMCAxNCAxNCc+PHBhdGggZmlsbD0nI0ZGRicgZmlsbC1ydWxlPSdldmVub2RkJyBkPSdNOS4yMDIgMy4wMjZhNC4zNjcgNC4zNjcgMCAxMC02LjE3NiA2LjE3NiA0LjM2NyA0LjM2NyAwIDEwNi4xNzYtNi4xNzZtNC41NDMgMTAuNzE5YS44NzUuODc1IDAgMDEtMS4yMzYgMGwtMi43NTEtMi43NTJjLTIuMzk1IDEuNzktNS43OTEgMS42MjEtNy45NjctLjU1NWE2LjExMyA2LjExMyAwIDAxMC04LjY0NyA2LjExMyA2LjExMyAwIDAxOC42NDcgMGMyLjE3NiAyLjE3NiAyLjM0NiA1LjU3Mi41NTUgNy45NjdsMi43NTIgMi43NTFjLjM0LjM0MS4zNC44OTQgMCAxLjIzNicvPjwvc3ZnPg==) no-repeat scroll 16px;
+    background-size: 14px;
+    background-color: hsla(0,0%,100%,.16);
+    border-radius: 24px;
+    border: none;
+    text-indent: 40px;
+}
+#search:focus, #search:hover{
+    background-color: #ffffff;
+    color: #000000;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNCcgaGVpZ2h0PScxNCcgdmlld0JveD0nMCAwIDE0IDE0Jz48cGF0aCBmaWxsLXJ1bGU9J2V2ZW5vZGQnIGQ9J005LjIwMiAzLjAyNmE0LjM2NyA0LjM2NyAwIDEwLTYuMTc2IDYuMTc2IDQuMzY3IDQuMzY3IDAgMTA2LjE3Ni02LjE3Nm00LjU0MyAxMC43MTlhLjg3NS44NzUgMCAwMS0xLjIzNiAwbC0yLjc1MS0yLjc1MmMtMi4zOTUgMS43OS01Ljc5MSAxLjYyMS03Ljk2Ny0uNTU1YTYuMTEzIDYuMTEzIDAgMDEwLTguNjQ3IDYuMTEzIDYuMTEzIDAgMDE4LjY0NyAwYzIuMTc2IDIuMTc2IDIuMzQ2IDUuNTcyLjU1NSA3Ljk2N2wyLjc1MiAyLjc1MWMuMzQuMzQxLjM0Ljg5NCAwIDEuMjM2Jy8+PC9zdmc+);
+    transition: color .3s,background-color .3s,opacity .3s,width .05s linear
+}
+
+#myBtn{
+    display: none;
+}
+
+.cleaner {
+    font-family: 'Tilt Neon', cursive;
+    font-size: medium;
+    font-weight: bold;
+    opacity: 0;
+    color: #000000;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 4px 0 -26px;
+    cursor: pointer;
+}
+    .cleaner.active {
+    opacity: 1;
+}
+
+.btnSearbar{
+    width: 19%;
+}
+
+.CreateGame{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 5px;
+}
+
+.createGame{
+    color: #ffffff;
+}
+
+@media screen and (max-width: 750px) {
+    #Nav{
+        display: block;
+    }
+    
+    .navLogo{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 15px;
+    }
+    .navLogoImg{
+        width: 20%;
+    }
+    .navTitle{
+        width: auto;
+        font-size: calc(2em + 1vw);
+    }
+    
+    .CreateGame{
+        display: flex;
+        align-items: center;
+        padding-top: 15px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .navLogo{
+        display: flex;
+        flex-direction: column;
+    }
+    .navLogoImg{
+        width: 30%;
+    }
+}

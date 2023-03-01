@@ -1,6 +1,7 @@
 import React from 'react';
 import { filterOrdered, filterRating } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
+import './Css/Filter.css'
 
 function OrderFilter({ setCurrentPage }) {
     const dispatch = useDispatch();
@@ -15,13 +16,13 @@ function OrderFilter({ setCurrentPage }) {
     return (
         <div id="orderFilter">
             <select className='orderFilterList' onChange={ handleSelect } defaultValue={'DEFAULT'} >
-                <option value="DEFAULT" disabled> Order by: </option>
-                <option value="DEFAULT" disabled> Name </option>
-                <option value="asc"> Ascendant </option>
-                <option value="desc"> Desendent </option>
-                <option value="DEFAULT" disabled> Rating </option>
-                <option value="rAsc"> Higher to lower </option>
-                <option value="rDesc"> Rating Lower to higher </option>
+                <option className='orderOptionsD' value="DEFAULT" disabled> Order by: </option>
+                <option className='orderOptionsD' value="DEFAULT" disabled> Name </option>
+                <option className='orderOptions' value="asc"> Ascendant </option>
+                <option className='orderOptions' value="desc"> Desendent </option>
+                <option className='orderOptionsD' value="DEFAULT" disabled> Rating </option>
+                <option className='orderOptions' value="rAsc"> Higher to lower </option>
+                <option className='orderOptions' value="rDesc"> Rating Lower to higher </option>
             </select>
         </div>
     )

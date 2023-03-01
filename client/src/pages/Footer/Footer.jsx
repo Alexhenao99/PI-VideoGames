@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Footer.css'
 // Images
 import github from "../../Images/icons/github.png"
 import linkedin from "../../Images/icons/linkedin.png"
@@ -7,18 +7,15 @@ import linkedin from "../../Images/icons/linkedin.png"
 
 const Footer = () => {
     return (
-        <footer className='Footer'>
-            <ul>
-                <il className="credits" >
-                    <ul className="listCredits" >
-                        <p className="credits" > Íconos: </p>
+        <footer id='Footer'>
+                <ul className="listCredits" >
+                        <p className="credits" > Icons: </p>
                         <li className="creditsLink" > <a href="https://www.flaticon.es/autores/iconsbox"> Flaticon </a> </li>
-                    </ul>
-                </il>
+                </ul>
                 <p className="copyrigth" > 
-                    Made with <img src="https://i.pinimg.com/originals/9a/84/c8/9a84c82ffa2654937e8aa8f715450961.gif" alt="Heart gift" /> &copy; William Henao - 2023 
+                    Made with <img className='heart' src="https://i.pinimg.com/originals/9a/84/c8/9a84c82ffa2654937e8aa8f715450961.gif" alt="Heart gift" />  &copy; William Henao - 2023 
                 </p>
-                <il className="iconsWebs" >
+                <div className="iconsWebs" >
                     <a href="https://github.com/Alexhenao99" > 
                         <img 
                             src={ github } 
@@ -33,8 +30,7 @@ const Footer = () => {
                             class = "contactMe"
                         /> 
                     </a> 
-                </il>
-            </ul>
+                </div>
         </footer>
     )
 }

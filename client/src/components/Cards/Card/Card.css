@@ -1,20 +1,105 @@
 #card{
-    width: 350px;
-    background-color: rgb(32 32 32);
+    border-radius: 20px;
+    background-color: #291d5762;
+    backdrop-filter: blur(5px);
+    height: 380px;
+    width: 310px;
+    margin: 10px;
+    transition: all 1s;
+}
+#card:hover{
+    transform: scale(1.05);
+    height: 100%;
+    margin-bottom: 26px;
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, 
+        rgba(240, 46, 170, 0.3) -10px 10px, 
+        rgba(240, 46, 170, 0.2) -15px 15px, 
+        rgba(240, 46, 170, 0.1) -20px 20px, 
+        rgba(240, 46, 170, 0.05) -25px 25px
+    ;
+}
+#card:hover .cardOpen{
+    display: block;
+}
+
+.imgCard{
+    width: 310px;
 }
 .img{
-    width: 350px;
+    position: relative;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
     height: 210px;
     object-fit: cover;
     object-position: top center;
 }
+
+.cardInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.rating{
+    position: absolute;
+    top: 220px;
+    right: 6px;
+    font-size: medium;
+    background-color: transparent;
+    border-radius: 5px ;
+    border: solid 2px;
+    padding: 5px;
+}
+.rating[ value = '5' ]{
+    color: #6dc849;
+    border-color: #6dc849;
+}
+.rating[ value = '4' ]{
+    color: #6dc849;
+    border-color: #6dc849;
+}
+.rating[ value = '3' ]{
+    color: #e17108;
+    border-color: #e17108;
+}
+.rating[ value = '2' ]{
+    color: #e17108;
+    border-color: #e17108;
+}
+.rating[ value = '1' ]{
+    color: #fe0000;
+    border-color: #fe0000;
+}
+.rating[ value = '0' ]{
+    color: #fe0000;
+    border-color: #fe0000;
+}
+
 .platform{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 10px 7px;
 }
 .platform img{
     display: flex;
     width: 25px;
     margin: 0 5px;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 290px;
+    height: 80px;
+    padding: 10px;
+    margin: 10.5px 0;
+    color: #ffffff;
+    font-size: calc(0.8em + 1vw);
+    transition: all 1s;
+}
+
+.cardOpen{
+    display: none;
+    transition: all 1s;
 }

@@ -12,7 +12,7 @@ import UpdateGame from './pages/Form/Update/UpdateGame';
 function App() {
   const location = useLocation();
   return (
-    <div className="App">
+    <div id="App">
       {location.pathname !== '/' && <Nav/>} 
       <Route exact path={'/'} component={ Landing } />
       <Route exact path={'/home'} component={ Home } />

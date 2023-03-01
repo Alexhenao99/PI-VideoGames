@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import SearchVideogame from '../../../components/SearchVideogames/SearchVideogame';
 import { searchGames } from '../../../redux/actions';
 import Pagination from '../../../components/Pagination/Pagination';
+import { Link } from 'react-router-dom';
+import './Searchbar.css'
 
 const Searchbar = () => {
     const dispatch = useDispatch();
@@ -29,7 +31,12 @@ const Searchbar = () => {
 
     return (
         <div id="searchbar">
-            <h1>Results with {name}!</h1>
+            <section className='resulGoHome'>
+                <h1 className='results' > Results with {name}! </h1>
+                <Link to={'/home'}>
+                    <button className='goHomeS'> Go Home </button>
+                </Link>
+            </section>
             <SearchVideogame videogames={currentGame} />
             <Pagination 
                 gamesPerPage={ gamesPerPage } 

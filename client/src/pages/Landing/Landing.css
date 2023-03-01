@@ -1,0 +1,231 @@
+#landing{
+    display: grid;
+    position: absolute;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding-top: 40px;
+    margin: 50px 50px 10px 10px;
+    border-radius: 15px;
+    box-shadow: blue 0px 0px 0px 2px inset, 
+        rgb(21 21 21) 10px -10px 0px -3px, 
+        rgb(31, 193, 27) 10px -10px, 
+        rgb(21 21 21) 20px -20px 0px -3px, 
+        rgb(255, 217, 19) 20px -20px, 
+        rgb(21 21 21) 30px -30px 0px -3px, 
+        rgb(255, 156, 85) 30px -30px, 
+        rgb(21 21 21) 40px -40px 0px -3px, 
+        rgb(255, 85, 85) 40px -40px
+    ;
+    background-image: linear-gradient( 
+            rgba(15, 15, 15, 0), 
+            rgb(21, 21, 21)
+        ),
+        linear-gradient(
+            rgba(21, 21, 21, 0.8), 
+            rgba(21, 21, 21, 0.5)
+        ),
+        url("https://i.pinimg.com/originals/d0/e0/e2/d0e0e259bf0aba4da742bedff1d4b8a5.gif")
+    ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoImg{
+    width: 150px;
+    margin: 0 25px;
+    transition: all 2s;
+}
+.logoImg:hover{
+    transform: scale(1.2) rotate(360deg);
+}
+
+.logoTitle{
+    font-family: 'Rampart One', cursive;
+    font-size: 72px;
+    background: -webkit-linear-gradient(#30E3DF, #FCE22A);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.desciption1{
+    margin-bottom: 40px;
+}
+
+.infoList{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.info2List{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    padding-left: 0 ;
+}
+
+.infoCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 25%;
+    height: 175px;
+    padding-bottom: 10px;
+    border-radius: 25px;
+    background-color: #69c2f229;
+    transition: all 1s;
+}
+.infoCard:hover{
+    background-color: #69e2f27d;
+}
+
+.infoCard p {
+    margin: 0;
+}
+
+.icons{
+    width: 128px;
+}
+
+.img_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.imgLanding{
+    width: 90%;
+    border-radius: 5%;
+    box-shadow: rgba(46, 240, 224, 0.4) 5px 5px, 
+        rgba(46, 240, 224, 0.3) 10px 10px, 
+        rgba(46, 240, 224, 0.2) 15px 15px, 
+        rgba(46, 240, 224, 0.1) 20px 20px, 
+        rgba(46, 240, 224, 0.05) 25px 25px
+    ;
+    transition: all 1s;
+}
+.imgLanding:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(71, 155, 77, 0.4) 5px 5px, 
+        rgba(71, 155, 77, 0.3) 10px 10px, 
+        rgba(71, 155, 77, 0.2) 15px 15px, 
+        rgba(71, 155, 77, 0.1) 20px 20px, 
+        rgba(71, 155, 77, 0.05) 25px 25px
+    ;
+}
+
+.btnLanding{
+    font-family: 'Tilt Neon', cursive;
+    font-size: 30px;
+    padding: 10px 0;
+    margin-top: 50px;
+    width: 500px;
+    appearance: none;
+    background-color: #01a71d;
+    color: #ffffff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 25px rgba(140, 255, 0, 0.5);
+    transition: all 1s;
+}
+.btnLanding:hover{
+    background-color: #03c5b5;
+    box-shadow: 0 2px 25px rgba(71, 133, 155, 0.5);
+    color: #000000;
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 1340px) {
+    #landing{
+        display: block;
+        padding-bottom: 40px;
+        margin-top: 50px;
+    }
+    .btnLanding{
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .btnLanding{
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 715px) {
+    #landing{
+        margin: 20px;
+        box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, 
+        rgb(31, 193, 27) 0px 0px 0px 6px, 
+        rgb(255, 217, 19) 0px 0px 0px 9px, 
+        rgb(255, 156, 85) 0px 0px 0px 12px, 
+        rgb(255, 85, 85) 0px 0px 0px 15px;
+    }
+    .infoCard{
+        height: 50%;
+    }
+    .icons{
+        width: 65%;
+    }
+    .infoCard p{
+        font-size: large;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    #landing{
+        width: 92%;
+        margin: 15px 12px;
+    }
+    .logo {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 100%;
+    }
+    .info, .logoImg, .logoTitle{
+        width: 100%;
+    }
+    .logoTitle{
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    .btnLanding{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .infoCard p{
+        font-size: small;
+    }
+}

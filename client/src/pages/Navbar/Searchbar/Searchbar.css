@@ -1,0 +1,40 @@
+
+.resulGoHome{
+    position: relative;
+}
+
+.goHomeS{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    font-family: 'Tilt Neon', cursive;
+    font-size: 15px;
+    padding: 10px 0;
+    width: 100px;
+    appearance: none;
+    background: linear-gradient(0deg, 
+        rgba(34,193,195,1) 0%,
+        rgba(253,187,45,1) 100%
+    );
+    color: #ffffff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 25px rgba(140, 255, 0, 0.5);
+    transition: all 1s;
+}
+.goHomeS:hover{
+    background: rgb(63,94,251);
+    background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 485px) {
+    .resulGoHome{
+        height: 110px;
+    }
+    .goHomeS{
+        top: 50px;
+        left: 35%;
+    }
+}

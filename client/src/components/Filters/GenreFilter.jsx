@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getGenres, filterGenre } from '../../redux/actions'
+import './Css/Filter.css'
 
 function GenreFilter({ setCurrentPage }) {
     const dispatch = useDispatch();
@@ -18,13 +19,13 @@ function GenreFilter({ setCurrentPage }) {
     
     return (
         <div id="genreFilter">
-            <select onChange={ handleSelect } defaultValue={'DEFAULT'}>
-                <option value="DEFAULT" disabled> Genre </option>
-                <option value="All"> All Genres </option>
+            <select className='genreFilters' onChange={ handleSelect } defaultValue={'DEFAULT'}>
+                <option className='genreOptions' value="DEFAULT" disabled> Genre </option>
+                <option className='genreOptionsAll' value="All"> All Genres </option>
                 {
                     genres.map(( genre, i ) => {
                         return(
-                            <option value={ genre.name } key={ i } > { genre.name } </option>
+                            <option className='genreOptions' value={ genre.name } key={ i } > { genre.name } </option>
                         )
                     })    
                 }

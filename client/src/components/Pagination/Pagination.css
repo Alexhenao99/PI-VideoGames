@@ -1,4 +1,5 @@
 #pagination {
+    font-family: 'Tilt Neon', cursive;
     margin: 27px 0 0px;
 }
 
@@ -6,6 +7,8 @@
     display: flex;
     justify-content: center;
     list-style: none;
+    flex-wrap: wrap;
+    grid-gap: 11px;
     gap: 11px;
 }
 
@@ -13,26 +16,34 @@
     border-radius: 5px;
     overflow: hidden;
 }
+.pagination{
+    margin: 0;
+    padding: 0;
+}
 
 .page {
+    font-family: 'Tilt Neon', cursive;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 16px;
     font-weight: 500;
-    color: darkblue;
+    background-color: gray;
+    background-color: #291d5762;
+    backdrop-filter: blur(5px);
+    color: #ffffff;
     height: 50px;
     width: 50px;
-    background-color: gray;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 15px;
 }
 .page:hover {
-    background-color: orange;
-    color: white;
+    background-color: #2F58CD;
+    color: #3A1078;
 }
 .page.active {
-    background-color: orange;
-    color: white;
+    background-color: #2F58CD;
+    color: #3A1078;
 }
