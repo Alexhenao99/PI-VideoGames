@@ -18,10 +18,9 @@ function GenreFilter({ setCurrentPage }) {
     };
     
     return (
-        <div id="genreFilter">
+        <form id="genreFilter">
             <select className='genreFilters' onChange={ handleSelect } defaultValue={'DEFAULT'}>
                 <option className='genreOptions' value="DEFAULT" disabled> Genre </option>
-                <option className='genreOptionsAll' value="All"> All Genres </option>
                 {
                     genres.map(( genre, i ) => {
                         return(
@@ -30,7 +29,8 @@ function GenreFilter({ setCurrentPage }) {
                     })    
                 }
             </select>
-        </div>
+            <button className='btnReset' type='reset' onClick={ handleSelect } value="All"> X </button>
+        </form>
     )
 }
 

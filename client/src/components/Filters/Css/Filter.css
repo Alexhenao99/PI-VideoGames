@@ -4,6 +4,9 @@
     justify-content: space-evenly;
     padding-top: 15px;
 }
+.genreFilter, .CreatedFilters, .platformFilter, .orderFilter{
+    position: relative;
+}
 .genreFilters, .orderFilterList, .createdFiltersList, .platformFilterList{
     width: auto;
     min-width: 150px;
@@ -20,6 +23,18 @@
 .genreOptionsAll, .orderOptionsD, .origionOptionsD, .platformOptionsD{
     color: rgb(89, 89, 89);
     background-color: #5B8FB9;
+}
+.btnReset{
+    position: absolute;
+    top: 2px;
+    right: -3px;
+    padding: 10px 10px;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 710px) {

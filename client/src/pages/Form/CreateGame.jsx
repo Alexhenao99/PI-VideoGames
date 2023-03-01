@@ -42,7 +42,7 @@ const CreateGame = () => {
         // Guarda los datos en las propiedades correspondientes
         setNewGame({
             ...newGame,
-            [inputName]: Number(value) ? Number(value) : value,
+            [inputName]: Number(value) ? Number(value).toFixed(1) : value,
         });
     };
 
@@ -120,7 +120,7 @@ const CreateGame = () => {
                         {/* Description */}
                         <div className="sectionInputCG">
                             <label className='label' htmlFor="description"> Description * </label>
-                            <textarea name="description" id='descriptionCG'  className='input' onChange={ handleChange } cols="30" rows="10" required  autoComplete='off' placeholder='Type the description...' ></textarea>
+                            <textarea name="description" id='descriptionCG' minLength="100" maxLength="300"  className='input' onChange={ handleChange } required  autoComplete='off' placeholder='Type the description...' ></textarea>
                         </div>
                         
                         {/* ReleaseDate */}
@@ -132,7 +132,7 @@ const CreateGame = () => {
                         {/* Rating */}
                         <div className="sectionInputCG">
                             <label className='label' htmlFor="rating"> Rating * </label>
-                            <input type="number" step="any" min={0} max={5} maxlength="20" className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off' placeholder='Rate the game from 0 to 5...'/>
+                            <input type="number" step="any" min={0} max={5} className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off' placeholder='Rate the game from 0 to 5...'/>
                         </div>
                         
                         {/* Platforms */}

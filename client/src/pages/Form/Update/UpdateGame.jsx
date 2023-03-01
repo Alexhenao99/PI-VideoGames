@@ -46,7 +46,7 @@ const UpdateGame = () => {
         // Guarda los datos en las propiedades correspondientes
         setUpdateGame({
             ...updateGame,
-            [inputName]: Number(value) ? Number(value) : value,
+            [inputName]: Number(value) ? Number(value).toFixed(1) : value,
         });
     };
     
@@ -125,7 +125,7 @@ const UpdateGame = () => {
                         {/* Description */}
                         <div className="sectionInputCG">
                             <label className='label' htmlFor="description"> Description </label>
-                            <textarea name="description" id='descriptionCG'  className='input' onChange={ handleChange } cols="30" rows="10" required  autoComplete='off' defaultValue={ detail.description } ></textarea>
+                            <textarea name="description" id='descriptionCG' minLength="100" maxLength="300"   className='input' onChange={ handleChange } cols="30" rows="10" required  autoComplete='off' defaultValue={ detail.description } ></textarea>
                         </div>
                         
                         {/* ReleaseDate */}
@@ -137,7 +137,7 @@ const UpdateGame = () => {
                         {/* Rating */}
                         <div className="sectionInputCG">
                             <label className='label' htmlFor="rating"> Rating * </label>
-                            <input type="number" step="any" min={0} max={5} className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off' defaultValue={ detail.rating}/>
+                            <input type="number" step="any" min={0} max={5} minLength="1" className="input" id='inputRating' name='rating' onChange={ handleChange } required autoComplete='off' defaultValue={ detail.rating}/>
                         </div>
                         
                         {/* Platforms */}

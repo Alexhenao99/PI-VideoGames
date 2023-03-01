@@ -13,7 +13,7 @@ function PlatformFilter({ setCurrentPage }) {
     };
     
     return (
-        <div id="platformFilter">
+        <form id="platformFilter">
             <select className='platformFilterList' onChange={ handleSelect } defaultValue={'DEFAULT'}>
                 <option className='platformOptionsD' value="DEFAULT" disabled> Platform </option>
                 <option className='platformOptions' value="xbox"> Xbox </option>
@@ -22,7 +22,8 @@ function PlatformFilter({ setCurrentPage }) {
                 <option className='platformOptions' value="pc"> Pc </option>
                 <option className='platformOptions' value="nintendo"> Nintendo </option>
             </select>
-        </div>
+            <button className='btnReset' type='reset' onClick={ handleSelect } value="All"> X </button>
+        </form>
     )
 }
 

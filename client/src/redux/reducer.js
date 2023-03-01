@@ -108,7 +108,7 @@ export default function rootReducer( state = initalState, { type, payload }) {
                 .includes( payload ) );
             return{
                 ...state,
-                games: platformFilter,
+                games: payload === "All" ? gamesPlatformFilter : platformFilter,
             };
         case FILTER_GENRE: 
             const gamesGenreFilter = state.gamesFilter;

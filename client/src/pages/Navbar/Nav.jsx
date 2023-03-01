@@ -6,7 +6,6 @@ import './Nav.css'
 
 function Nav() {
     const [ name, setName ] = useState("");
-    console.log(name);
     const handleChange = () => {
         document.getElementById("search").value = ""
     } 

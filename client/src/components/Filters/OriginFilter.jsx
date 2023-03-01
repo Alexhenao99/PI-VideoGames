@@ -12,14 +12,14 @@ function CreatedFilter({ setCurrentPage }) {
         dispatch( filterCreated( value ))
     }
     return (
-        <div id='CreatedFilters'>
+        <form className='CreatedFilters'>
             <select className='createdFiltersList' onChange={ handleSelect } defaultValue={'DEFAULT'}>
                 <option className='origionOptionsD' value="DEFAULT" disabled> Origin </option>
-                <option className='origionOptions' value="All"> All </option>
                 <option className='origionOptions' value="Api"> API </option>
                 <option className='origionOptions' value="created"> Database </option>
             </select>
-        </div>
+            <button className='btnReset' type='reset' onClick={ handleSelect } value="All"> X </button>
+        </form>
     )
 }
 
